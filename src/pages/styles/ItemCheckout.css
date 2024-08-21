@@ -21,3 +21,18 @@
 .Empty-cart p{
     font-weight: 600;
 }
+.items-wrap{
+    display: flex;
+}
+.wrap{
+    border-bottom: 1px solid red;
+    padding-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+.wraps{
+    align-items: center;
+    /* justify-content: space-between; */
+    gap: 10px;
+    /* border: 1px solid pink; */
+}

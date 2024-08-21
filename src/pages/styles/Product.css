@@ -19,9 +19,9 @@
     flex-wrap: wrap;
     gap: 30px;
 }
-.cardwrap{
-    /* border: 3px solid yellow; */
-}
+/* .cardwrap{
+    border: 3px solid yellow;
+} */
 .img-size{
     border-radius: 10px;
     width: 200px;

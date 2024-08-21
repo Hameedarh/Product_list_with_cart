@@ -19,10 +19,8 @@ function Product() {
         <div className= 'cardbody'>
           {list.map(({name, category, price, image: {thumbnail, mobile, tablet, desktop}, index}) => {
             return (
-              <div className='cardwrap'>
-                {/* <p>{pro.name}</p> */}
+              <div className='cardwrap' key={index}>
                 <img
-                  key={index}
                   src={desktop}
                   alt="product"
                   className='img-size'/>
@@ -36,12 +34,6 @@ function Product() {
                     <img src={addToCartIcon} alt='cart'/>
                     <p>Add to Cart</p>
                   </div>
-                  {/* <button onClick={() => setCount((count) => count + 1)}>
-                  count is {count}
-                  </button>   */}
-                  {/* <button onClick={() => setCount((count) => count + 1)}>
-                  count is {count}
-                  </button>   */}
                 </div>
               </div>
             );
