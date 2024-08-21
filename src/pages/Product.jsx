@@ -1,11 +1,14 @@
-import React, {useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import './styles/Product.css'
-import data from '../../data.json'
-import addToCart from '../assets/images/icon-add-to-cart.svg'
+import list from '../../data.json'
+import addToCartIcon from '../assets/images/icon-add-to-cart.svg'
+import { CartContext } from '../context/Cart'
 
 function Product() {
 
+ 
   const [count, setCount] = useState(0)
+  const { cartItems, addToCart } = useContext(CartContext)
   
   return (
     <section className='Product-wrap'>
@@ -14,7 +17,7 @@ function Product() {
       </div>
       <div>
         <div className= 'cardbody'>
-          {data.map(({name, category, price, image: {thumbnail, mobile, tablet, desktop}, index}) => {
+          {list.map(({name, category, price, image: {thumbnail, mobile, tablet, desktop}, index}) => {
             return (
               <div className='cardwrap'>
                 {/* <p>{pro.name}</p> */}
@@ -29,13 +32,13 @@ function Product() {
                   <p className='price-col col2'>${price}</p>
                 </div>
                 <div>
-                  <div className='add-to-cart'>
-                    <img src={addToCart} alt='cart'/>
+                  <div onClick={() => addToCart({list})} className='add-to-cart'>
+                    <img src={addToCartIcon} alt='cart'/>
                     <p>Add to Cart</p>
                   </div>
-                  <button onClick={() => setCount((count) => count + 1)}>
+                  {/* <button onClick={() => setCount((count) => count + 1)}>
                   count is {count}
-                  </button>  
+                  </button>   */}
                   {/* <button onClick={() => setCount((count) => count + 1)}>
                   count is {count}
                   </button>   */}
