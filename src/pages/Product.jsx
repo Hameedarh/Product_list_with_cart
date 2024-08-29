@@ -6,31 +6,41 @@ import { CartContext } from '../context/Cart'
 
 function Product() {
 
- 
+  const [products, setProducts]= useState([])
+
+  async function getProducts() {
+    const response = await fetch('https://dummyjson.com/products')
+    const data = await response.json()
+    setProducts(data.products)
+  }
+  useEffect(() => {
+    getProducts();
+  }, [])
+
   const [count, setCount] = useState(0)
   const { cartItems, addToCart } = useContext(CartContext)
   
   return (
     <section className='Product-wrap'>
       <div className='ProductH'>
-        <h1>Desserts</h1>
+        <h1>Market</h1>
       </div>
-      <div>
+      <div className= 'card-wrapper'>
         <div className= 'cardbody'>
-          {list.map(({name, category, price, image: {thumbnail, mobile, tablet, desktop}, index}) => {
+          {products.map((product) => {
             return (
-              <div className='cardwrap' key={index}>
+              <div className='cardwrap' key={product.id}>
                 <img
-                  src={desktop}
+                  src={product.thumbnail} 
                   alt="product"
                   className='img-size'/>
                 <div className='text-div'>
-                  <p>{category}</p>
-                  <p className='price-col'>{name}</p>
-                  <p className='price-col col2'>${price}</p>
+                  <p>{product.category}</p>
+                  <p className='price-col'>{product.title}</p>
+                  <p className='price-col col2'>${product.price}</p>
                 </div>
                 <div>
-                  <div onClick={() => addToCart({list})} className='add-to-cart'>
+                  <div onClick={() => addToCart({product})} className='add-to-cart'>
                     <img src={addToCartIcon} alt='cart'/>
                     <p>Add to Cart</p>
                   </div>

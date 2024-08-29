@@ -18,6 +18,8 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 30px;
+    /* width: 100%; */
+    /* border: 2px solid pink; */
 }
 /* .cardwrap{
     border: 3px solid yellow;
@@ -25,9 +27,11 @@
 .img-size{
     border-radius: 10px;
     width: 200px;
+    height: 200px;
+    border: 2px solid hsl(14, 86%, 42%);
 }
 .img-size:hover{
-    border: 2px solid hsl(14, 86%, 42%);
+    border: 2px solid hsl(20, 50%, 98%);
 }
 .add-to-cart{
     border: 2px solid hsl(14, 86%, 42%);
@@ -48,6 +52,7 @@
 }
 .text-div{
     padding: 30px 0 0px;
+    /* width: 300px; */
 }
 .price-col{
     font-weight: 600;
@@ -56,4 +61,8 @@
 .col2{
     color: hsl(14, 86%, 42%);
 
+}
+.cardwrap{
+    /* border: 2px solid blue; */
+    width: 30%;
 }
